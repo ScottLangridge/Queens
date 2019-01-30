@@ -1,3 +1,4 @@
-import simple_backtracking.generate_solution
+from simple_backtracking import generate_solution
 
-print('hi')
+
+print(generate_solution(4))
