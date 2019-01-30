@@ -5,21 +5,28 @@ def main(num_queens):
     board = create_board(num_queens)
     cands = create_cands(num_queens)
 
-    row = 0    
-    while row < 8:
+    row = 0
+    while row < num_queens:
+        board[row] = ['-', '-', '-', '-']
+
         while len(cands[row]) > 0:
             guessed_x = random.choice(cands[row])
+            cands[row].remove(guessed_x)
             board[row][guessed_x] = 'Q'
-            
+
             if solution_valid(board):
                 row += 1
                 break
             else:
-                cands[row].remove(guessed_x)
+                board[row][guessed_x] = '-'
 
-        if len(cands[row]) == 0:
-            cands[row] = list(range(num_queens))
-            row -= 1
+                if len(cands[row]) == 0:
+                    cands[row] = list(range(num_queens))
+                    row -= 1
+                    break
+
+    print_board(board)
+
 
 def create_board(num_queens):
     board = []
@@ -59,7 +66,7 @@ def queen_valid(coord, board):
     for y in range(len(board)):
         if board[y][start_x] == 'Q' and y != start_y:
             return False
-    
+
     x = start_x + 1
     y = start_y + 1
     while x < len(board) and y < len(board):
@@ -91,9 +98,9 @@ def queen_valid(coord, board):
             return False
         x += 1
         y -= 1
-    
+
     return True
-        
+
 
 def print_board(board):
     print('+' + '---+' * len(board))
@@ -105,4 +112,4 @@ def print_board(board):
         print('+' + '---+' * len(board))
 
 
-main(8)
+main(4)
