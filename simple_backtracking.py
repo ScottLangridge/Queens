@@ -1,9 +1,7 @@
 import random
 
-QUEENS = 64 
 
-
-def main(num_queens):
+def generate_solution(num_queens):
     board = create_board(num_queens)
     cands = create_cands(num_queens)
 
@@ -27,7 +25,7 @@ def main(num_queens):
             else:
                 board[row][guessed_x] = '-'
 
-    print_board(board)
+    return(board)
 
 
 def create_board(num_queens):
@@ -112,6 +110,3 @@ def print_board(board):
             line = line + ' ' + cell + ' |'
         print(line)
         print('+' + '---+' * len(board))
-
-
-main(QUEENS)
