@@ -1,5 +1,7 @@
 import random
 
+QUEENS = 16
+
 
 def main(num_queens):
     board = create_board(num_queens)
@@ -7,9 +9,13 @@ def main(num_queens):
 
     row = 0
     while row < num_queens:
-        board[row] = ['-', '-', '-', '-']
+        while True:
+            if len(cands[row]) == 0:
+                cands[row] = list(range(num_queens))
+                row -= 1
+                board[row] = ['-'] * num_queens
+                break
 
-        while len(cands[row]) > 0:
             guessed_x = random.choice(cands[row])
             cands[row].remove(guessed_x)
             board[row][guessed_x] = 'Q'
@@ -19,11 +25,6 @@ def main(num_queens):
                 break
             else:
                 board[row][guessed_x] = '-'
-
-                if len(cands[row]) == 0:
-                    cands[row] = list(range(num_queens))
-                    row -= 1
-                    break
 
     print_board(board)
 
@@ -112,4 +113,4 @@ def print_board(board):
         print('+' + '---+' * len(board))
 
 
-main(4)
+main(QUEENS)
