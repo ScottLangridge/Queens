@@ -5,7 +5,7 @@ from time import time
 
 
 def main():
-    avg_time(32, 10)
+    pass
 
 
 # Average time for a given number of runs and board size
@@ -38,6 +38,18 @@ def print_board(board):
             line = line + ' ' + cell + ' |'
         print(line)
         print('+' + '---+' * len(board))
+
+
+# Write a board to CSV
+def write_board(filename, board):
+    out = ''
+    for row in board:
+        for val in row:
+            out = out + val + ','
+        out = out[:-1] + '\n'
+
+    with open(filename, 'w') as f:
+        f.write(out)
 
 
 main()
