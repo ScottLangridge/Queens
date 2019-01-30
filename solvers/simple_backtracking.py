@@ -7,7 +7,6 @@ def generate_solution(num_queens):
 
     row = 0
     while row < num_queens:
-        print('Evaluating row:', row)
         while True:
             if len(cands[row]) == 0:
                 cands[row] = list(range(num_queens))
@@ -25,7 +24,7 @@ def generate_solution(num_queens):
             else:
                 board[row][guessed_x] = '-'
 
-    return(board)
+    return board
 
 
 def create_board(num_queens):
