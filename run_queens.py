@@ -1,11 +1,12 @@
 import math
 
-from solvers.simple_backtracking import generate_solution
+from solvers.simple_backtracking import simple_generate_solution
 from time import time
 
 
 def main():
-    pass
+    for n in range(4, 5):
+        write_board('solutions/' + str(n) + 'queens.csv', simple_generate_solution(n))
 
 
 # Average time for a given number of runs and board size
@@ -25,7 +26,7 @@ def avg_time(queens, runs):
 # Run it once and return how long it took
 def time_solution(queens):
     start = time()
-    generate_solution(queens)
+    simple_generate_solution(queens)
     return time() - start
 
 

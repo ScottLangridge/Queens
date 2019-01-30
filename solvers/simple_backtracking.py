@@ -1,7 +1,7 @@
 import random
 
 
-def generate_solution(num_queens):
+def simple_generate_solution(num_queens):
     board = create_board(num_queens)
     cands = create_cands(num_queens)
 
