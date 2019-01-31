@@ -5,8 +5,8 @@ from time import time
 
 
 def main():
-    i = 4
-    while True:
+    i = 90
+    while i <= 100:
         print('Finding solution to', i, 'queens!')
         start = time()
         if i < 10:

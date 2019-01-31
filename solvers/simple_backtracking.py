@@ -51,6 +51,7 @@ def solution_valid(board):
             if board[y][x] == 'Q':
                 if not queen_valid((x, y), board):
                     return False
+
     return True
 
 
