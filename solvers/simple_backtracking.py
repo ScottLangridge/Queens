@@ -18,7 +18,7 @@ def simple_generate_solution(num_queens):
             cands[row].remove(guessed_x)
             board[row][guessed_x] = 'Q'
 
-            if solution_valid(board):
+            if solution_valid(board, row):
                 row += 1
                 break
             else:
@@ -45,12 +45,11 @@ def create_cands(num_queens):
     return cands
 
 
-def solution_valid(board):
-    for y in range(len(board)):
-        for x in range(len(board)):
-            if board[y][x] == 'Q':
-                if not queen_valid((x, y), board):
-                    return False
+def solution_valid(board, latest_row):
+    for x in range(len(board)):
+        if board[latest_row][x] == 'Q':
+            if not queen_valid((x, latest_row), board):
+                return False
 
     return True
 

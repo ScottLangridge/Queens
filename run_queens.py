@@ -5,7 +5,7 @@ from time import time
 
 
 def main():
-    i = 90
+    i = 4
     while i <= 100:
         print('Finding solution to', i, 'queens!')
         start = time()
