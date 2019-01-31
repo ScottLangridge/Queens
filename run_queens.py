@@ -5,9 +5,17 @@ from time import time
 
 
 def main():
-    for n in range(4, 5):
-        write_board('solutions/' + str(n) + 'queens.csv', simple_generate_solution(n))
-
+    i = 4
+    while True:
+        print('Finding solution to', i, 'queens!')
+        start = time()
+        if i < 10:
+            write_board('solutions/0' + str(i) + 'queens.csv', simple_generate_solution(i))
+        else:
+            write_board('solutions/' + str(i) + 'queens.csv', simple_generate_solution(i))
+        add_to_log(i, time() - start)
+        i += 1
+    
 
 # Average time for a given number of runs and board size
 def avg_time(queens, runs):
@@ -51,6 +59,12 @@ def write_board(filename, board):
 
     with open(filename, 'w') as f:
         f.write(out)
+
+
+# Add the time taken to the log file
+def add_to_log(queens, time):
+    with open('solutions/time-log.txt', 'a') as f:
+        f.write(str(queens) + ': ' + str(time) + '\n')
 
 
 main()
