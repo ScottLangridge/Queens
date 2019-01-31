@@ -5,11 +5,13 @@ from time import time
 
 
 def main():
-    i = 4
-    while i <= 100:
+    i = 101 
+    while True:
         print('Finding solution to', i, 'queens!')
         start = time()
         if i < 10:
+            write_board('solutions/00' + str(i) + 'queens.csv', simple_generate_solution(i))
+        elif i < 100:
             write_board('solutions/0' + str(i) + 'queens.csv', simple_generate_solution(i))
         else:
             write_board('solutions/' + str(i) + 'queens.csv', simple_generate_solution(i))
