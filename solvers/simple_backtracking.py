@@ -1,13 +1,18 @@
 import random
+from time import time
 
 
-def simple_generate_solution(num_queens):
+def simple_generate_solution(num_queens, max_run_time):
+    start_time = time()
     board = create_board(num_queens)
     cands = create_cands(num_queens)
 
     row = 0
     while row < num_queens:
         while True:
+            if time() - start_time > max_run_time:
+                return simple_generate_solution(num_queens, max_run_time * 2)
+            
             if len(cands[row]) == 0:
                 cands[row] = list(range(num_queens))
                 row -= 1

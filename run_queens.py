@@ -5,16 +5,16 @@ from time import time
 
 
 def main():
-    i = 101 
+    i = 4
     while True:
         print('Finding solution to', i, 'queens!')
         start = time()
         if i < 10:
-            write_board('solutions/00' + str(i) + 'queens.csv', simple_generate_solution(i))
+            write_board('solutions/00' + str(i) + 'queens.csv', simple_generate_solution(i, 5))
         elif i < 100:
-            write_board('solutions/0' + str(i) + 'queens.csv', simple_generate_solution(i))
+            write_board('solutions/0' + str(i) + 'queens.csv', simple_generate_solution(i, 5))
         else:
-            write_board('solutions/' + str(i) + 'queens.csv', simple_generate_solution(i))
+            write_board('solutions/' + str(i) + 'queens.csv', simple_generate_solution(i, 5))
         add_to_log(i, time() - start)
         i += 1
     
