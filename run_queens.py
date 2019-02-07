@@ -10,18 +10,17 @@ def main():
         print('Finding solution to', i, 'queens!')
         start = time()
         if i < 10:
-            write_board('solutions/00' + str(i) + 'queens.csv',
-                    simple_generate_solution(i, 99999))
+            write_board('solutions/00' + str(i) + 'queens.csv', 
+                        simple_generate_solution(i, 99999))
         elif i < 100:
-            write_board('solutions/0' + str(i) + 'queens.csv',
-                    simple_generate_solution(i, 99999 ))
+            write_board('solutions/0' + str(i) + 'queens.csv', 
+                        simple_generate_solution(i, 99999))
         else:
-            write_board('solutions/' + str(i) + 'queens.csv',
-                    simple_generate_solution(i,
-                        99999))
+            write_board('solutions/' + str(i) + 'queens.csv', 
+                        simple_generate_solution(i, 99999))
         add_to_log(i, time() - start)
         i += 1
-    
+
 
 # Average time for a given number of runs and board size
 def avg_time(queens, runs):
